@@ -18,13 +18,18 @@ public class PersonsRepository {
 
     public PersonsRepository() {}
 
+    // получить список личностей по городу
     public List<Person> getPersonsByCity(String city) {
+        // запрос
         Query query = entityManager.createQuery("select p from Person p " +
                                                    "where p.city_of_living is not null " +
                                                    "and p.city_of_living = (select c from City c where upper(c.name) = upper(:city))"
                                                 , Person.class);
+        // параметр
         query.setParameter("city", city);
+        // результат запроса
         List<Person> persons = query.getResultList();
+
         return persons;
     }
 }
