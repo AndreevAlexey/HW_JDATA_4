@@ -16,10 +16,10 @@ import javax.persistence.*;
 @Table(name = "persons")
 public class Person {
     @EmbeddedId
-    private Identification identification;
+    private Identification id;
     private String phone_number;
     @ManyToOne
-    private City city_of_living;
+    private City city;
 
 
 }

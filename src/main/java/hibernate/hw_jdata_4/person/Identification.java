@@ -15,6 +15,6 @@ import java.io.Serializable;
 @Embeddable
 public class Identification implements Serializable {
     private String name;
-    private String  surname;
+    private String surname;
     private int age;
 }

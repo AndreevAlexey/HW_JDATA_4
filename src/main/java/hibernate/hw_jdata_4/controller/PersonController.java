@@ -24,6 +24,16 @@ public class PersonController {
         return personService.getPersonsByCity(city);
     }
 
+    @GetMapping("/persons/by-age-lower")
+    public List<Person> getPersonsByAgeLower(@RequestParam("age") int age) {
+        return personService.getPersonsByAgeLower(age);
+    }
+
+    @GetMapping("/persons/by-name-surname")
+    public List<Person> getPersonsByNameAndSurname(@RequestParam("name") String name, @RequestParam("surname") String surname) {
+        return personService.getPersonsByNameAndSurname(name, surname);
+    }
+
     @ExceptionHandler
     ResponseEntity<String> handlerRuntimeException(RuntimeException exp) {
         exp.printStackTrace();
